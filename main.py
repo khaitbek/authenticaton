@@ -20,20 +20,20 @@ class Registration:
                        "key to exit\n")
         self.register() if choice == "1" else self.login() if choice == "2" else exit()
     #
-    # def register(self):
-    #     self.name = input("Enter your name: ")
-    #     self.login_ = input("Enter your login: ")
-    #     while self.checkLogin():
-    #         self.login_ = input("This user already exists. Enter your login: ")
-    #     self.password = input("Enter your password: ")
-    #     while not self.checkPassword(self.password):
-    #         self.password = input("Your password is too weak. Please try another one: ")
-    #     my_cursor.execute(f"insert into users values(null,'{self.name}','{self.login_}','{self.password}')")
-    #     db.commit()
-    #     print("You registered successfully!")
-    #     choice = input("Enter 1 to log in or enter any key to exit")
-    #     self.login() if choice == "1" else exit()
-    #
+    def register(self):
+        self.name = input("Enter your name: ")
+        self.login_ = input("Enter your login: ")
+        while self.checkLogin():
+            self.login_ = input("This user already exists. Enter your login: ")
+        self.password = input("Enter your password: ")
+        while not self.checkPassword(self.password):
+            self.password = input("Your password is too weak. Please try another one: ")
+        my_cursor.execute(f"insert into users values(null,'{self.name}','{self.login_}','{self.password}')")
+        db.commit()
+        print("You registered successfully!")
+        choice = input("Enter 1 to log in or enter any key to exit")
+        self.login() if choice == "1" else exit()
+
     # def update(self):
     #     system("clear")
     #     choice = input(
