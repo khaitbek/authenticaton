@@ -34,30 +34,30 @@ class Registration:
         choice = input("Enter 1 to log in or enter any key to exit")
         self.login() if choice == "1" else exit()
 
-    # def update(self):
-    #     system("clear")
-    #     choice = input(
-    #         "[1] Update password\n[2] Update login\n[3] Logout\n[4] Delete account\n Press any other key to exit\n")
-    #     self.update_password() if choice == "1" else self.update_login() if choice == "2" else self.log_out() if \
-    #         choice == "3" else self.delete_account() if choice == "4" else exit()
-    #
-    # def login(self):
-    #     system("clear")
-    #     self.update_things()
-    #     if self.checkUser():
-    #         print("You logged in successfully!")
-    #         self.update()
-    #     else:
-    #         system("clear")
-    #         print("No such user!")
-    #         time.sleep(5)
-    #         self.welcome()
-    #
-    # def update_things(self):
-    #     system("clear")
-    #     self.login_ = input("Enter your login: ")
-    #     self.password = input("Enter your password: ")
-    #
+    def update(self):
+        system("clear")
+        choice = input(
+            "[1] Update password\n[2] Update login\n[3] Logout\n[4] Delete account\n Press any other key to exit\n")
+        self.update_password() if choice == "1" else self.update_login() if choice == "2" else self.log_out() if \
+            choice == "3" else self.delete_account() if choice == "4" else exit()
+
+    def login(self):
+        system("clear")
+        self.update_things()
+        if self.checkUser():
+            print("You logged in successfully!")
+            self.update()
+        else:
+            system("clear")
+            print("No such user!")
+            time.sleep(5)
+            self.welcome()
+
+    def update_things(self):
+        system("clear")
+        self.login_ = input("Enter your login: ")
+        self.password = input("Enter your password: ")
+
     # def update_login(self):
     #     self.update_things()
     #     if self.checkUser():
@@ -71,18 +71,18 @@ class Registration:
     #         print("No such user!")
     #         self.update()
     #
-    # @staticmethod
-    # def checkPassword(password):
-    #     return len(password) >= 6
-    #
-    # def checkLogin(self):
-    #     my_cursor.execute(f"select * from users where login='{self.login_}'")
-    #     return not not my_cursor.fetchall()
-    #
-    # def checkUser(self):
-    #     my_cursor.execute(f"select * from users where login='{self.login_}' and password='{self.password}'")
-    #     return not not my_cursor.fetchall()
-    #
+    @staticmethod
+    def checkPassword(password):
+        return len(password) >= 6
+
+    def checkLogin(self):
+        my_cursor.execute(f"select * from users where login='{self.login_}'")
+        return not not my_cursor.fetchall()
+
+    def checkUser(self):
+        my_cursor.execute(f"select * from users where login='{self.login_}' and password='{self.password}'")
+        return not not my_cursor.fetchall()
+
     # def delete_account(self):
     #     self.update_things()
     #     if self.checkUser():
